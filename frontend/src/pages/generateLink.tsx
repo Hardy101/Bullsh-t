@@ -44,7 +44,7 @@ const GetLink = () => {
             />
           </li>
           <li className="flex">
-            <Link to="/" className="w-full rounded-lg py-2 bg-purple px-4">
+            <Link to="/messageboard" className="w-full rounded-lg py-2 bg-purple px-4">
               Generate Link
             </Link>
           </li>
