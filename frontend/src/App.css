@@ -3,10 +3,15 @@
 @theme {
   --color-dark-1: #191825;
   --color-dark-2: #1e1e1e;
-  --font-neucha: niramit;
+  --font-neucha: neucha;
+  --font-lobster: lobster;
 }
 
 @font-face {
-  font-family: "niramit";
-  src: url("assets/fonts/Niramit/Niramit-Regular.ttf");
+  font-family: neucha;
+  src: url("assets/fonts/Lobster-Regular.ttf");
+}
+@font-face {
+  font-family: lobster;
+  src: url("assets/fonts/Neucha-Regular.ttf");
 }
