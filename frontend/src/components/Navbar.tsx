@@ -13,7 +13,7 @@ export const NavBar = () => {
             name=""
             id=""
             placeholder="Paste forum invite link or type forum name"
-            className="w-3/5 px-3 py-2 rounded-md outline-none border border-[#B2BEB5] text-xs text-center"
+            className="w-4/5 px-3 py-2 rounded-md outline-none border border-[#B2BEB5] text-xs text-center"
           />
         </div>
         <ul className="flex gap-4 my-auto text-sm">
