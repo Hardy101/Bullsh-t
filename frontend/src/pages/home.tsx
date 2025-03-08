@@ -1,6 +1,7 @@
 import { NavBar } from "../components/Navbar";
+import { Link } from "react-router";
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <main className="flex h-screen">
       <NavBar />
@@ -12,9 +13,12 @@ export const Home: React.FC = () => {
           </span>
         </p>
         <p className="flex gap-4 mt-8 justify-center text-xl">
-          <a href="#" className="bg-yellow text-black px-4 py-2 rounded-sm">
+          <Link
+            to="/getlink"
+            className="bg-yellow text-black px-4 py-2 rounded-sm"
+          >
             Generate Link
-          </a>
+          </Link>
           <a href="#" className="bg-yellow text-black px-4 py-2 rounded-sm">
             I have a link
           </a>
@@ -23,3 +27,5 @@ export const Home: React.FC = () => {
     </main>
   );
 };
+
+export default Home;
