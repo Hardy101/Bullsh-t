@@ -3,15 +3,18 @@
 @theme {
   --color-dark-1: #191825;
   --color-dark-2: #1e1e1e;
+  --color-yellow: #cdf500;
+  --color-grey: #bbbbbb;
+  --color-purple: #a66cff;
   --font-neucha: neucha;
   --font-lobster: lobster;
 }
 
 @font-face {
-  font-family: neucha;
+  font-family: lobster;
   src: url("assets/fonts/Lobster-Regular.ttf");
 }
 @font-face {
-  font-family: lobster;
+  font-family: neucha;
   src: url("assets/fonts/Neucha-Regular.ttf");
 }
