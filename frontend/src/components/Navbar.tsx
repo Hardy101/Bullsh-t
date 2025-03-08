@@ -3,7 +3,7 @@ import { MEDIA } from "../constants/media";
 export const NavBar = () => {
   return (
     <nav>
-      <div className="flex justify-between gap-4 px-6 py-4 text-white font-neucha  rounded-full">
+      <div className="flex justify-between gap-4 px-6 py-4 text-white font-niramit  rounded-full">
         <a href="#" className="my-auto">
           <img src={MEDIA.LOGO} alt="logo" className="w-20" />
         </a>

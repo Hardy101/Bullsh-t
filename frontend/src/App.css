@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark-1: #0f0f0f;
-  --color-dark-2: #1E1E1E;
-  --font-neucha: neucha;
+  --color-dark-1: #191825;
+  --color-dark-2: #1e1e1e;
+  --font-neucha: niramit;
 }
 
 @font-face {
-  font-family: "neucha";
-  src: url("assets/fonts/Neucha/Neucha-Regular.ttf");
+  font-family: "niramit";
+  src: url("assets/fonts/Niramit/Niramit-Regular.ttf");
 }
