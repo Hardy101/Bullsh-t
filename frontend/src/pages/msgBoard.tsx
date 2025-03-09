@@ -1,5 +1,4 @@
 import { NavBar } from "../components/Navbar";
-import { Link } from "react-router";
 
 const MessageBoard = () => {
   return (
