@@ -31,11 +31,11 @@ const MessageBoard = () => {
               alt="anonymous image"
               className="w-6 invert mb-auto"
             />
-            <p className="grid mb-auto">
-              <span className="text-xl">
+            <p className="grid">
+              <span className="text-lg">
                 Bro you reek of piss, take a shower
               </span>
-              <span className="text-neuc text-sm text-grey">12:29 am</span>
+              <span className="text-sm text-grey">12:29 am</span>
             </p>
           </li>
         </ul>
