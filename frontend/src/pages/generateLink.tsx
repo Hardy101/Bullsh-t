@@ -21,13 +21,12 @@ const GetLink = () => {
         {activeStep == "link" && (
           <div className="step-1 mt-8">
             <form action={"#"} onSubmit={(e) => e.preventDefault()}>
-              {errors && (
-                <div className="form-control bg-red-500 py-1 text-center text-sm">
-                  {/* <p>The name already exists, please try a different one.</p> */}
-                  <p>Name cannot be blank. Please enter something.</p>
-                </div>
-              )}
-
+              (
+              <div className="form-control bg-red-500 py-1 text-center text-sm">
+                {/* <p>The name already exists, please try a different one.</p> */}
+                <p>Name cannot be blank. Please enter something.</p>
+              </div>
+              )
               <div className="grid gap-6 mt-8">
                 <div className="flex flex-col gap-2">
                   <input
