@@ -40,11 +40,14 @@ const GetLink = () => {
               name=""
               id=""
               placeholder="Enter Name"
-              className="w-full font-neucha bg-white px-4 py-2 text-gray-600 placeholder:text-gray-600 rounded-lg outline-none"
+              className="w-full font-neucha bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none"
             />
           </li>
           <li className="flex">
-            <Link to="/messageboard" className="w-full rounded-lg py-2 bg-purple px-4">
+            <Link
+              to="/messageboard"
+              className="w-full text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster"
+            >
               Generate Link
             </Link>
           </li>

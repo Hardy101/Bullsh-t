@@ -4,6 +4,7 @@
   --color-dark-1: #191825;
   --color-dark-2: #1e1e1e;
   --color-dark-3: #2c2c2c;
+  --color-dark-4: #183153;
   --color-yellow: #cdf500;
   --color-grey: #bbbbbb;
   --color-purple: #a66cff;
@@ -26,4 +27,8 @@
     rgba(44, 44, 44, 1) 0%,
     rgba(15, 15, 15, 1) 100%
   );
+}
+
+.bs-1 {
+  box-shadow: 0 0.475em 0 #191825;
 }
