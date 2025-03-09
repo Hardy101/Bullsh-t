@@ -1,15 +1,17 @@
 import { NavBar } from "../components/Navbar";
 import { Link } from "react-router";
 
+import { MEDIA } from "../constants/media";
+
 const GetLink = () => {
   return (
     <main className="flex h-screen">
       <NavBar />
-      <div className="font-neucha w-6/7 md:w-3/7 m-auto text-white bg-dark-3 rounded-2xl py-4 px-8">
+      <div className="courgette-regular w-6/7 md:w-3/7 m-auto text-white bg-dark-3 rounded-2xl py-4 px-8">
         <span className="block w-4/8 text-center py-2 text-xl bg-yellow text-black mx-auto -mt-10 -rotate-6">
           Secret Message
         </span>
-        <ul className="grid gap-3 list-disc mt-8">
+        <ul className="grid gap-3 list-disc mt-12">
           <li>
             <p className="grid">
               <span className="font-lobster">Step 1</span>
@@ -40,15 +42,16 @@ const GetLink = () => {
               name=""
               id=""
               placeholder="Enter Name"
-              className="w-full font-neucha bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none"
+              className="w-full courgette-regular bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none"
             />
           </li>
           <li className="flex">
             <Link
               to="/messageboard"
-              className="w-full text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster"
+              className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster"
             >
-              Generate Link
+              <span className="my-auto">Generate Link</span>
+              <img src={MEDIA.sparkling} alt="sparkling icon" className="w-5 my-auto"/>
             </Link>
           </li>
         </ul>

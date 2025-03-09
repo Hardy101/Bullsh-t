@@ -32,3 +32,9 @@
 .bs-1 {
   box-shadow: 0 0.475em 0 #191825;
 }
+
+.courgette-regular {
+  font-family: "Courgette", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
