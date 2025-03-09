@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const GetLink = () => {
   const [activeStep, setActiveStep] = useState("link");
-  const [errors, setErrors] = useState("");
   return (
     <main className="flex h-screen">
       <div className="relative w-6/7 md:w-3/7 m-auto text-white bg-dark-3 rounded-2xl py-4 px-8">
@@ -64,7 +63,7 @@ const GetLink = () => {
                 Great! Your link has been generated.
               </h2>
               <h3 className="text-grey">
-                You can share then to your anyone for them to send you messages.
+                You can share then to anyone for them to send you messages.
               </h3>
             </div>
             <p className="flex gap-4">
