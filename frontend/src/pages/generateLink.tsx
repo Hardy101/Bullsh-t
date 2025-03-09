@@ -5,29 +5,35 @@ import { useState } from "react";
 
 interface FormData {
   name: string;
-  error?: string;
+  error?: string | boolean;
 }
 
 const GetLink = () => {
   const [activeStep, setActiveStep] = useState("link");
   const [formData, setFormData] = useState<FormData>({ name: "" });
 
+  // To check if name is valid
   const checkName = (name: string) => {
-    if (name.length >= 5) return true;
-    else return false;
+    if (name.length < 5) return "Name must be atleast 5 letters long";
+    else if (name == "fisher")
+      return "Name already exists, please choose another one.";
+    else return true;
   };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (checkName(formData.name)) {
-      console.log(formData), setActiveStep("msg");
+    if (checkName(formData.name) == true) {
+      console.log(formData);
+      setActiveStep("msg");
     } else {
       setFormData({
         ...formData,
-        error: "Name must be atleast 5 letters long",
+        error: checkName(formData.name),
       });
     }
   };
