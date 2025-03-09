@@ -9,11 +9,21 @@
   --color-grey: #bbbbbb;
   --color-purple: #a66cff;
   --font-neucha: neucha;
-  --font-lobster: lobster;
+  --font-courgette: courgette;
+  --font-fira-sans: fira-sans;
+  --font-fira-sans-bold: fira-sans-bold;
 }
 @font-face {
-  font-family: ;
-  src: url();
+  font-family: courgette;
+  src: url("assets/fonts/Courgette-Regular.ttf");
+}
+@font-face {
+  font-family: fira-sans-regular;
+  src: url("assets/fonts/FiraSans-Regular.ttf");
+}
+@font-face {
+  font-family: fira-sans-bold;
+  src: url("assets/fonts/FiraSans-Bold.ttf");
 }
 @font-face {
   font-family: lobster;
