@@ -10,10 +10,8 @@ interface FormData {
 }
 
 const EnterForum: React.FC = () => {
-  const [activeStep, setActiveStep] = useState("link");
   const [formData, setFormData] = useState<FormData>({ name: "" });
   const divRef = useRef(null);
-  const msgRef = useRef(null);
 
   // Scale up main div on load
   useEffect(() => {
@@ -46,8 +44,6 @@ const EnterForum: React.FC = () => {
     e.preventDefault();
     if (checkName(formData.name) == true) {
       console.log(formData);
-      setActiveStep("msg");
-      scaleUp();
     } else {
       setFormData({
         ...formData,
@@ -56,13 +52,6 @@ const EnterForum: React.FC = () => {
     }
   };
 
-  const scaleUp = () => {
-    gsap.fromTo(
-      msgRef.current,
-      { scale: 0, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1, ease: "elastic.out(0.7, 0.5)" }
-    );
-  };
   return (
     <main className="flex h-screen">
       <div
@@ -77,85 +66,42 @@ const EnterForum: React.FC = () => {
           <span>Go back home</span>
         </Link>
         <span className="absolute right-4 -top-4 text-center py-1 px-2 text-lg rounded-md bg-yellow text-black font-lobster">
-          Secret Message
+          Access Forum
         </span>
-        {activeStep == "link" && (
-          <form onSubmit={handleSubmit} className="step-1 mt-8">
-            {formData.error && (
-              <div className="form-control font-neucha bg-red-500 py-1 text-center text-sm">
-                <p>{formData.error}</p>
-              </div>
-            )}
 
-            <div className="grid gap-6 mt-8">
-              <div className="flex flex-col gap-2">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  value={formData.name.trim()}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter Name"
-                  className="w-full courgette-regular bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none"
-                />
-                <span className="text-grey text-sm font-neucha">
-                  Enter your name to generate a unique link
-                </span>
-              </div>
-              <button className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster cursor-pointer">
-                <span className="my-auto">Generate Link</span>
-                <img
-                  src={MEDIA.sparkling}
-                  alt="sparkling icon"
-                  className="w-5 my-auto"
-                />
-              </button>
+        <form onSubmit={handleSubmit} className="step-1 mt-8">
+          {formData.error && (
+            <div className="form-control font-neucha bg-red-500 py-1 text-center text-sm">
+              <p>{formData.error}</p>
             </div>
-          </form>
-        )}
-        <div
-          ref={msgRef}
-          id="step-2"
-          className={`grid ${
-            activeStep == "msg" ? "" : "hidden"
-          }  gap-y-4 mt-8 font-neucha`}
-        >
-          <div>
-            <h2 className="text-2xl font-fira-sans-bold">
-              Great! Your link has been generated.
-            </h2>
-            <h3 className="text-grey">
-              You can share it to anyone for them to send you messages.
-            </h3>
-          </div>
-          <p className="flex gap-4">
-            <Link
-              to="https://www.google.com"
-              target="_blank"
-              rel="noreferrer"
-              className="grow text-sm bg-dark-2 px-2 py-1 my-auto rounded-md hover:text-purple hover:underline"
-            >
-              https://www.bullshit/{formData.name}
-            </Link>
-            <button className="my-auto">
-              <i className="lni lni-clipboard"></i>
-            </button>
-          </p>
-          <div>
-            <Link
-              to="/messageboard"
-              className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster"
-            >
-              <span className="my-auto">View message board</span>
+          )}
+
+          <div className="grid gap-6 mt-8">
+            <div className="flex flex-col gap-2">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={formData.name.trim()}
+                onChange={handleChange}
+                required
+                placeholder="Enter Name"
+                className="w-full courgette-regular bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none"
+              />
+              <span className="text-grey text-sm font-neucha">
+                Enter your name to access your forum
+              </span>
+            </div>
+            <button className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster cursor-pointer">
+              <span className="my-auto">Access Forum</span>
               <img
-                src={MEDIA.sparkling}
+                src={MEDIA.rightArrow}
                 alt="sparkling icon"
                 className="w-5 my-auto"
               />
-            </Link>
+            </button>
           </div>
-        </div>
+        </form>
       </div>
     </main>
   );

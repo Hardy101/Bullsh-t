@@ -23,7 +23,7 @@ const Home: React.FC = () => {
             <img src={MEDIA.sparkling} alt="right arrow" className="w-8" />
           </Link>
           <Link
-            to="#"
+            to="/forum"
             className="inline-flex items-center gap-1 bg-yellow text-black px-4 py-2 rounded-sm"
           >
             I own a forum
