@@ -15,6 +15,20 @@ const GetLink: React.FC = () => {
   const divRef = useRef(null);
   const msgRef = useRef(null);
 
+  // Scale up main div on load
+  useEffect(() => {
+    gsap.fromTo(
+      divRef.current,
+      { scale: 0, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: "elastic.out(1, 0.5)",
+      }
+    );
+  }, []);
+
   // To check if name is valid
   const checkName = (name: string) => {
     if (name.length < 5) return "Name must be atleast 5 letters long";
@@ -41,19 +55,6 @@ const GetLink: React.FC = () => {
       });
     }
   };
-
-  useEffect(() => {
-    gsap.fromTo(
-      divRef.current,
-      { scale: 0, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 1,
-        ease: "elastic.out(1, 0.5)",
-      }
-    );
-  }, []);
 
   const scaleUp = () => {
     gsap.fromTo(
