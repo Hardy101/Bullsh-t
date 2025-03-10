@@ -1,5 +1,7 @@
-import { NavBar } from "../components/Navbar";
 import { Link } from "react-router";
+
+import { NavBar } from "../components/Navbar";
+import { MEDIA } from "../constants/media";
 
 const Home: React.FC = () => {
   return (
@@ -15,11 +17,18 @@ const Home: React.FC = () => {
         <p className="flex gap-4 mt-8 justify-center text-base font-lobster">
           <Link
             to="/getlink"
-            className="bg-yellow text-black px-4 py-2 rounded-sm"
+            className="inline-flex items-center gap-1 bg-purple text-black px-4 py-2 rounded-sm"
           >
             Generate Link
+            <img src={MEDIA.sparkling} alt="right arrow" className="w-8" />
           </Link>
-        
+          <Link
+            to="#"
+            className="inline-flex items-center gap-1 bg-yellow text-black px-4 py-2 rounded-sm"
+          >
+            I own a forum
+            <img src={MEDIA.rightArrow} alt="right arrow" className="w-8" />
+          </Link>
         </p>
       </div>
     </main>
