@@ -1,16 +1,19 @@
 import { Link } from "react-router";
+import { useRef, useState, useEffect } from "react";
+import gsap from "gsap";
 
 import { MEDIA } from "../constants/media";
-import { useState } from "react";
 
 interface FormData {
   name: string;
   error?: string | boolean;
 }
 
-const GetLink = () => {
+const GetLink: React.FC = () => {
   const [activeStep, setActiveStep] = useState("link");
   const [formData, setFormData] = useState<FormData>({ name: "" });
+  const divRef = useRef(null);
+  const msgRef = useRef(null);
 
   // To check if name is valid
   const checkName = (name: string) => {
@@ -30,6 +33,7 @@ const GetLink = () => {
     if (checkName(formData.name) == true) {
       console.log(formData);
       setActiveStep("msg");
+      scaleUp();
     } else {
       setFormData({
         ...formData,
@@ -37,9 +41,33 @@ const GetLink = () => {
       });
     }
   };
+
+  useEffect(() => {
+    gsap.fromTo(
+      divRef.current,
+      { scale: 0, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: "elastic.out(1, 0.5)",
+      }
+    );
+  }, []);
+
+  const scaleUp = () => {
+    gsap.fromTo(
+      msgRef.current,
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1, ease: "elastic.out(0.7, 0.5)" }
+    );
+  };
   return (
     <main className="flex h-screen">
-      <div className="relative w-6/7 md:w-3/7 m-auto text-white bg-dark-3 rounded-2xl py-4 px-8">
+      <div
+        ref={divRef}
+        className="relative w-6/7 md:w-3/7 m-auto text-white bg-dark-3 rounded-2xl py-4 px-8"
+      >
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-grey font-semibold cursor-pointer text-xs font-neucha"
@@ -54,7 +82,6 @@ const GetLink = () => {
           <form onSubmit={handleSubmit} className="step-1 mt-8">
             {formData.error && (
               <div className="form-control font-neucha bg-red-500 py-1 text-center text-sm">
-                {/* <p>The name already exists, please try a different one.</p> */}
                 <p>{formData.error}</p>
               </div>
             )}
@@ -86,44 +113,48 @@ const GetLink = () => {
             </div>
           </form>
         )}
-        {activeStep == "msg" && (
-          <div id="step-2" className="grid gap-y-4 mt-8 font-neucha">
-            <div>
-              <h2 className="text-2xl font-fira-sans-bold">
-                Great! Your link has been generated.
-              </h2>
-              <h3 className="text-grey">
-                You can share it to anyone for them to send you messages.
-              </h3>
-            </div>
-            <p className="flex gap-4">
-              <Link
-                to="https://www.google.com"
-                target="_blank"
-                rel="noreferrer"
-                className="grow text-sm bg-dark-2 px-2 py-1 my-auto rounded-md hover:text-purple hover:underline"
-              >
-                https://www.bullshit/{formData.name}
-              </Link>
-              <button className="my-auto">
-                <i className="lni lni-clipboard"></i>
-              </button>
-            </p>
-            <div>
-              <Link
-                to="/messageboard"
-                className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster"
-              >
-                <span className="my-auto">View message board</span>
-                <img
-                  src={MEDIA.sparkling}
-                  alt="sparkling icon"
-                  className="w-5 my-auto"
-                />
-              </Link>
-            </div>
+        <div
+          ref={msgRef}
+          id="step-2"
+          className={`grid ${
+            activeStep == "msg" ? "" : "hidden"
+          }  gap-y-4 mt-8 font-neucha`}
+        >
+          <div>
+            <h2 className="text-2xl font-fira-sans-bold">
+              Great! Your link has been generated.
+            </h2>
+            <h3 className="text-grey">
+              You can share it to anyone for them to send you messages.
+            </h3>
           </div>
-        )}
+          <p className="flex gap-4">
+            <Link
+              to="https://www.google.com"
+              target="_blank"
+              rel="noreferrer"
+              className="grow text-sm bg-dark-2 px-2 py-1 my-auto rounded-md hover:text-purple hover:underline"
+            >
+              https://www.bullshit/{formData.name}
+            </Link>
+            <button className="my-auto">
+              <i className="lni lni-clipboard"></i>
+            </button>
+          </p>
+          <div>
+            <Link
+              to="/messageboard"
+              className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster"
+            >
+              <span className="my-auto">View message board</span>
+              <img
+                src={MEDIA.sparkling}
+                alt="sparkling icon"
+                className="w-5 my-auto"
+              />
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   );
