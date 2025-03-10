@@ -5,7 +5,7 @@ import { NavBar } from "../components/Navbar";
 
 const MessageBoard = () => {
   return (
-    <main className="flex">
+    <main>
       <NavBar />
       <div className="font-neucha grid gap-6 text-white rounded-2xl py-4 px-8 mt-24">
         <div className="actions inline-flex gap-4 items-center text-sm">
@@ -16,8 +16,14 @@ const MessageBoard = () => {
             <i className="lni lni-arrow-left"></i>
             <span>Go home</span>
           </Link>
-          <button className="font-semibold hover:text-red-500">Delete all messages</button>
+          <button className="font-semibold hover:text-red-500">
+            Delete all messages
+          </button>
         </div>
+        <p className="bg-red-500 px-2 py-1">
+          Hi there, this forum will expire in 48 hours unless you secure it by
+          creating an account.
+        </p>
         <h1 className="font-lobster text-3xl mt-4">
           <span className="text-xl text-yellow">69</span> Messages for{" "}
           <span className="text-purple underline hover:text-purple-300 cursor-pointer">
