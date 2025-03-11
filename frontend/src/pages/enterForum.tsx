@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
