@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import gsap from "gsap";
 
 import { NavBar } from "../components/Navbar";
@@ -14,25 +14,30 @@ const GetLink: React.FC = () => {
   const [activeStep, setActiveStep] = useState("link");
   const [formData, setFormData] = useState<FormData>({ name: "" });
   const [copied, setCopied] = useState(false);
-  const divRef = useRef(null);
-  const msgRef = useRef(null);
+  const divRef = useRef<HTMLDivElement>(null);
+  const msgRef = useRef<HTMLDivElement>(null);
 
   // Scale up main div on load
   useEffect(() => {
-    gsap.fromTo(
-      divRef.current,
-      { scale: 0, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 1,
-        ease: "elastic.out(1, 0.5)",
-      }
-    );
+    animateScale(divRef);
   }, []);
 
-  // To check if name is valid
-  const checkName = (name: string) => {
+  // Reusable animation function
+  const animateScale = useCallback(
+    (ref: React.RefObject<HTMLDivElement | null>) => {
+      if (!ref.current) return;
+
+      gsap.fromTo(
+        ref.current,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1, ease: "elastic.out(1, 0.5)" }
+      );
+    },
+    []
+  );
+
+  // To check if name of forum is valid
+  const checkName = (name: string): string | boolean => {
     if (name.length < 5) return "Name must be atleast 5 letters long";
     else if (name == "fisher")
       return "Name already exists, please choose another one.";
@@ -46,30 +51,24 @@ const GetLink: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (checkName(formData.name) == true) {
+    const validation = checkName(formData.name);
+
+    if (validation == true) {
       setActiveStep("msg");
-      scaleUp();
+      animateScale(msgRef);
     } else {
-      setFormData({
-        ...formData,
-        error: checkName(formData.name),
-      });
+      setFormData((prev) => ({
+        ...prev,
+        error: validation,
+      }));
     }
   };
 
   const handleCopy = () => {
     setCopied(true);
-
     setTimeout(() => setCopied(false), 3000);
   };
 
-  const scaleUp = () => {
-    gsap.fromTo(
-      msgRef.current,
-      { scale: 0, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1, ease: "elastic.out(0.7, 0.5)" }
-    );
-  };
   return (
     <main className="flex h-screen">
       <NavBar />
