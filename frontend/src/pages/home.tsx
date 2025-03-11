@@ -17,17 +17,18 @@ const Home: React.FC = () => {
         <p className="flex gap-4 mt-8 justify-center text-base font-lobster">
           <Link
             to="/getlink"
-            className="inline-flex items-center gap-1 bg-purple text-black px-4 py-2 rounded-sm"
+            className="inline-flex items-center gap-1 msglink"
           >
             Generate Link
             <img src={MEDIA.sparkling} alt="right arrow" className="w-8" />
           </Link>
-          <Link
-            to="/forum"
-            className="inline-flex items-center gap-1 bg-yellow text-black px-4 py-2 rounded-sm"
-          >
+          <Link to="/forum" className="inline-flex items-center gap-1 gnrtlink">
             I own a forum
-            <img src={MEDIA.rightArrow} alt="right arrow" className="w-8" />
+            <img
+              src={MEDIA.rightArrow}
+              alt="right arrow"
+              className="w-8"
+            />
           </Link>
         </p>
       </div>

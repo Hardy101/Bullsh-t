@@ -46,9 +46,21 @@
 .bs-1 {
   box-shadow: 0 0.475em 0 #191825;
 }
+.bs-2 {
+  box-shadow: 0 0.475em 0 #a365ff;
+}
+.bs-3 {
+  box-shadow: 0 0.475em 0 #000;
+}
 
 .courgette-regular {
   font-family: "Courgette", cursive;
   font-weight: 400;
   font-style: normal;
+}
+.gnrtlink {
+  @apply bg-gradient-to-b from-white to-gray-100 text-purple-600 border border-purple-500 shadow-lg shadow-purple-500/40 px-6 py-3 rounded-2xl transition-transform transform hover:scale-105 hover:shadow-purple-500/60;
+}
+.msglink {
+  @apply bg-purple-600 px-6 py-3 rounded-2xl shadow-md shadow-purple-500/30 transition-all duration-300 hover:bg-purple-700 hover:shadow-purple-500/50 hover:scale-105;
 }
