@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import ScaleUpDiv from "../components/scaleupDiv";
+import { MEDIA } from "../constants/media";
 
 interface FormData {
   message: string;
@@ -51,6 +52,7 @@ const SendMessage: React.FC = () => {
               className="font-lobster w-full py-2 bg-purple bs-1 rounded-2xl"
             >
               <span className="sendbtn">Send Message</span>
+              <img src={MEDIA.loadingIcon} alt="loading icon" className="hidden mx-auto" />
             </button>
           </div>
         </div>
