@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import ScaleUpDiv from "../components/scaleupDiv";
 
 interface FormData {
@@ -45,7 +46,12 @@ const SendMessage: React.FC = () => {
             </span>
           </div>
           <div>
-            <button type="button" className="font-lobster w-full py-2 bg-purple bs-1 rounded-2xl">Send Message</button>
+            <button
+              type="button"
+              className="font-lobster w-full py-2 bg-purple bs-1 rounded-2xl"
+            >
+              <span className="sendbtn">Send Message</span>
+            </button>
           </div>
         </div>
       </form>
