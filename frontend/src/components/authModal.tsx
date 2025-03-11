@@ -58,8 +58,14 @@ const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
   }, [showModal]);
 
   return (
-    <div ref={parentRef} className={`scale-0 fixed top-0 w-full h-screen font-neucha`}>
-      <div className="child absolute w-full h-full bg-black opacity-80"></div>
+    <div
+      ref={parentRef}
+      className={`scale-0 fixed top-0 w-full h-screen font-neucha`}
+    >
+      <div
+        onClick={() => console.log("fish")}
+        className="child absolute w-full h-full bg-black opacity-80"
+      ></div>
       <div ref={childRef} className="grid h-full">
         <form
           action="#"

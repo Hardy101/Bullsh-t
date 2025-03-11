@@ -23,10 +23,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <AuthModal
-        showModal={showModal}
-        onClose={() => (setShowModal(false), console.log(showModal))}
-      />
+      <AuthModal showModal={showModal} onClose={() => setShowModal(false)} />
     </>
   );
 }

@@ -19,8 +19,8 @@ const MessageBoard = () => {
           </button>
         </div>
         <p className="bg-red-500 px-2 py-1">
-          Hi there, this forum will expire in 48 hours unless you secure it by
-          creating an account.
+          Forums, excluding your personal one, will be automatically deleted
+          after 24 hours.
         </p>
         <h1 className="font-lobster text-3xl mt-4">
           <span className="text-xl text-yellow">69</span> Messages for{" "}
@@ -34,6 +34,9 @@ const MessageBoard = () => {
               src={MEDIA.ANONYM}
               alt="anonymous image"
               className="w-6 invert mb-auto"
+              style={{
+                pointerEvents: "none",
+              }}
             />
             <p className="grid">
               <span className="text-lg">
