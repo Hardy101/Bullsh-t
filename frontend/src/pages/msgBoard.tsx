@@ -39,7 +39,7 @@ const MessageBoard = () => {
             />
             <p className="grid">
               <span className="text-lg">
-                Bro you reek of piss, take a shower
+                Bro you smell like lavender, What perfume do you wear?
               </span>
               <span className="text-sm text-grey">12:29 am</span>
             </p>
