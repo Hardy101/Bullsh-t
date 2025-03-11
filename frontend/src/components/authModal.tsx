@@ -1,14 +1,30 @@
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface ModalProps {
   showModal: boolean;
   onClose: () => void;
 }
 
+interface FormData {
+  name: string;
+  password: string;
+}
+
 const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    password: "",
+  });
+
   const parentRef = useRef<HTMLDivElement>(null);
   const childRef = useRef<HTMLDivElement>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   useEffect(() => {
     if (showModal) {
       const tl = gsap.timeline();
@@ -42,7 +58,7 @@ const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
   }, [showModal]);
 
   return (
-    <div ref={parentRef} className={`fixed top-0 w-full h-screen font-neucha`}>
+    <div ref={parentRef} className={`scale-0 fixed top-0 w-full h-screen font-neucha`}>
       <div className="child absolute w-full h-full bg-black opacity-80"></div>
       <div ref={childRef} className="grid h-full">
         <form
@@ -63,6 +79,9 @@ const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
           <div className="form-control mt-8">
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               className="w-full rounded-md text-black bg-grey outline-none p-2 text-sm"
               placeholder="Enter Your Name"
             />
@@ -70,6 +89,9 @@ const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
           <div className="form-control mt-4">
             <input
               type="text"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               className="w-full rounded-md text-black bg-grey outline-none p-2 text-sm"
               placeholder="Enter Password"
             />
