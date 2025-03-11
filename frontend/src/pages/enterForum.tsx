@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 import { MEDIA } from "../constants/media";
 
-interface FormData {
+export interface FormData {
   name: string;
   password: string;
   error?: string | boolean;
