@@ -13,7 +13,7 @@ export const NavBar: React.FC<ModalProps> = ({ setShowModal }) => {
         </a>
         <button
           onClick={setShowModal}
-          className={`inline-flex items-center py-1 pl-1 pr-2 gap-4 text-black text-sm font-lobster bg-white rounded-full cursor-pointer`}
+          className={`inline-flex items-center py-1 pl-1 pr-2 gap-4 text-black text-sm font-lobster bg-white rounded-full`}
         >
           <img src={MEDIA.ANONYM} alt="anonymous" className="w-8 " />
           <span>Register/Login</span>

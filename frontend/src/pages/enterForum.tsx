@@ -101,7 +101,7 @@ const EnterForum: React.FC = () => {
               className="w-full courgette-regular bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none focus:border-purple"
             />
           </div>
-          <button className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster cursor-pointer">
+          <button className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster">
             <span className="my-auto">Access Forum</span>
             <img
               src={MEDIA.rightArrow}

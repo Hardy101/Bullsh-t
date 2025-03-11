@@ -74,7 +74,7 @@ const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex items-center gap-1 rounded-sm text-sm text-black cursor-pointer bs-4 px-2 border hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out"
+            className="inline-flex items-center gap-1 rounded-sm text-sm text-black bs-2 px-2 border hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out"
           >
             <i className="lni lni-xmark"></i>
             close
@@ -105,7 +105,7 @@ const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
           <div className="form-control mt-4">
             <button
               type="button"
-              className="w-full bg-purple bs-1 py-2 rounded-xl cursor-pointer"
+              className="w-full bg-purple bs-1 py-2 rounded-xl"
             >
               Authenticate
             </button>

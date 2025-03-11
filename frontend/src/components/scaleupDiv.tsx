@@ -38,7 +38,7 @@ const ScaleUpDiv: React.FC<DivProps> = ({ children, title }) => {
       >
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-grey font-semibold cursor-pointer text-xs font-neucha"
+          className="inline-flex items-center gap-2 text-grey font-semibold text-xs font-neucha"
         >
           <i className="lni lni-arrow-left"></i>
           <span>Go back home</span>

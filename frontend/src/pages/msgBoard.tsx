@@ -9,7 +9,7 @@ const MessageBoard = () => {
         <div className="actions inline-flex gap-4 items-center text-sm">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-grey font-semibold cursor-pointer text-sm font-neucha"
+            className="inline-flex items-center gap-2 text-grey font-semibold text-sm font-neucha"
           >
             <i className="lni lni-arrow-left"></i>
             <span>Go home</span>
@@ -24,7 +24,7 @@ const MessageBoard = () => {
         </p>
         <h1 className="font-lobster text-3xl mt-4">
           <span className="text-xl text-yellow">69</span> Messages for{" "}
-          <span className="text-purple underline hover:text-purple-300 cursor-pointer">
+          <span className="text-purple underline hover:text-purple-300">
             Fitzgerald
           </span>
         </h1>
