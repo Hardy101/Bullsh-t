@@ -105,7 +105,7 @@ const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
           <div className="form-control mt-4">
             <button
               type="button"
-              className="w-full bg-purple bs-1 py-2 rounded-xl"
+              className="w-full bg-purple text-white bs-1 py-2 rounded-xl"
             >
               Authenticate
             </button>
