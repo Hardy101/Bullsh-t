@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
@@ -6,11 +6,19 @@ import { MEDIA } from "../constants/media";
 
 interface FormData {
   name: string;
+  password: string;
   error?: string | boolean;
 }
 
 const EnterForum: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({ name: "" });
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    password: "",
+  });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const divRef = useRef(null);
 
   // Scale up main div on load
@@ -43,7 +51,7 @@ const EnterForum: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (checkName(formData.name) == true) {
-      console.log(formData);
+      setIsSubmitted(true);
     } else {
       setFormData({
         ...formData,
@@ -52,6 +60,9 @@ const EnterForum: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    isSubmitted && navigate("/messageboard");
+  }, [isSubmitted, navigate]);
   return (
     <main className="flex h-screen">
       <div
@@ -86,11 +97,23 @@ const EnterForum: React.FC = () => {
                 onChange={handleChange}
                 required
                 placeholder="Enter Name"
-                className="w-full courgette-regular bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none"
+                className="w-full courgette-regular bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none focus:border-purple"
               />
               <span className="text-grey text-sm font-neucha">
                 Enter your name to access your forum
               </span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <input
+                type="text"
+                name="password"
+                id="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                placeholder="Enter Password"
+                className="w-full courgette-regular bg-transparent px-3 py-2 text-white placeholder:text-white border-2 border-grey rounded-lg outline-none focus:border-purple"
+              />
             </div>
             <button className="flex w-full gap-2 justify-center text-center bs-1 rounded-lg py-2 bg-white text-black px-4 font-lobster cursor-pointer">
               <span className="my-auto">Access Forum</span>

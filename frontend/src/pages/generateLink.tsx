@@ -47,7 +47,6 @@ const GetLink: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (checkName(formData.name) == true) {
-      console.log(formData);
       setActiveStep("msg");
       scaleUp();
     } else {
