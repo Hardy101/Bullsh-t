@@ -12,6 +12,7 @@ interface FormData {
 const GetLink: React.FC = () => {
   const [activeStep, setActiveStep] = useState("link");
   const [formData, setFormData] = useState<FormData>({ name: "" });
+  const [copied, setCopied] = useState(false);
   const divRef = useRef(null);
   const msgRef = useRef(null);
 
@@ -54,6 +55,12 @@ const GetLink: React.FC = () => {
         error: checkName(formData.name),
       });
     }
+  };
+
+  const handleCopy = () => {
+    setCopied(true);
+
+    setTimeout(() => setCopied(false), 3000);
   };
 
   const scaleUp = () => {
@@ -138,8 +145,12 @@ const GetLink: React.FC = () => {
             >
               https://www.bullshit/{formData.name}
             </Link>
-            <button className="my-auto">
-              <i className="lni lni-clipboard"></i>
+            <button onClick={handleCopy} className="my-auto cursor-pointer">
+              <span
+                className={`px-4 py-1 rounded-md bs-4 transition-all duration-300 ${copied ? "bg-green-500 text-white" : "bg-white text-black"}`}
+              >
+                {copied ? "copied!" : "copy"}
+              </span>
             </button>
           </p>
           <div>
