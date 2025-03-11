@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
+import { NavBar } from "../components/Navbar";
 import { MEDIA } from "../constants/media";
 
 interface FormData {
@@ -72,6 +73,7 @@ const GetLink: React.FC = () => {
   };
   return (
     <main className="flex h-screen">
+      <NavBar />
       <div
         ref={divRef}
         className="relative w-6/7 md:w-3/7 m-auto text-white bg-dark-3 rounded-2xl py-4 px-8"
@@ -147,7 +149,9 @@ const GetLink: React.FC = () => {
             </Link>
             <button onClick={handleCopy} className="my-auto cursor-pointer">
               <span
-                className={`px-4 py-1 rounded-md bs-4 transition-all duration-300 ${copied ? "bg-green-500 text-white" : "bg-white text-black"}`}
+                className={`px-4 py-1 rounded-md bs-4 transition-all duration-300 ${
+                  copied ? "bg-green-500 text-white" : "bg-white text-black"
+                }`}
               >
                 {copied ? "copied!" : "copy"}
               </span>
