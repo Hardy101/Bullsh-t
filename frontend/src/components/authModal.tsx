@@ -3,13 +3,16 @@ import ReactDOM from "react-dom";
 
 import { FormData } from "../pages/enterForum";
 
-const AuthModal: React.FC = () => {
+interface ModalProps {
+  showModal: boolean;
+  onClose: () => void;
+}
+
+const AuthModal: React.FC<ModalProps> = ({ showModal, onClose }) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     password: "",
   });
-
-  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -21,10 +24,14 @@ const AuthModal: React.FC = () => {
   };
 
   return ReactDOM.createPortal(
-    <div className="fixed top-0 left-0 w-full h-full bg-black opacity-40 font-neucha">
+    <div
+      className={`${
+        showModal ? "scale-0" : "scale-1"
+      } fixed top-0 left-0 w-full h-full bg-black opacity-40 font-neucha`}
+    >
       <div className="relative modal bg-white rounded-2xl p-4">
         <button
-          onClick={() => setShowModal(false)}
+          onClick={onClose}
           className="absolute -top-5 -right-5 bg-red-500 text-sm"
         >
           close
