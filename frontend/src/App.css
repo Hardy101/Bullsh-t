@@ -42,7 +42,9 @@
     rgba(15, 15, 15, 1) 100%
   );
 }
-
+* button {
+  cursor: pointer;
+}
 .bs-1 {
   box-shadow: 0 0.475em 0 #191825;
 }
