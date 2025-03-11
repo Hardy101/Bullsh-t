@@ -2,7 +2,6 @@ import { Link } from "react-router";
 import { useRef, useState, useEffect, useCallback } from "react";
 import gsap from "gsap";
 
-import { NavBar } from "../components/Navbar";
 import { MEDIA } from "../constants/media";
 
 interface FormData {
@@ -71,7 +70,6 @@ const GetLink: React.FC = () => {
 
   return (
     <main className="flex h-screen">
-      <NavBar />
       <div
         ref={divRef}
         className="relative w-6/7 md:w-3/7 m-auto text-white bg-dark-3 rounded-2xl py-4 px-8"

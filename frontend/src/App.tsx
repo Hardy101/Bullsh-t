@@ -7,12 +7,14 @@ import GetLink from "./pages/generateLink";
 import MessageBoard from "./pages/msgBoard";
 import EnterForum from "./pages/enterForum";
 import AuthModal from "./components/authModal";
+import { NavBar } from "./components/Navbar";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
       <BrowserRouter>
+        <NavBar setShowModal={() => setShowModal(true)} />
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="getlink" element={<GetLink />} />
@@ -21,7 +23,10 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <AuthModal showModal={showModal} onClose={() => setShowModal(false)} />
+      <AuthModal
+        showModal={showModal}
+        onClose={() => (setShowModal(false), console.log(showModal))}
+      />
     </>
   );
 }

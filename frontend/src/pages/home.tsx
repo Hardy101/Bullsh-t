@@ -1,12 +1,10 @@
 import { Link } from "react-router";
 
-import { NavBar } from "../components/Navbar";
 import { MEDIA } from "../constants/media";
 
 const Home: React.FC = () => {
   return (
     <main className="flex h-screen">
-      <NavBar />
       <div className="font-courgette w-4/5 md:w-3/5 m-auto text-white">
         <p className="grid gap-y-6 text-5xl text-center">
           <span className="">We listen, we don't judge.</span>

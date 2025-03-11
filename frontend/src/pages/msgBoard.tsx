@@ -1,12 +1,10 @@
 import { Link } from "react-router";
 
 import { MEDIA } from "../constants/media";
-import { NavBar } from "../components/Navbar";
 
 const MessageBoard = () => {
   return (
     <main className="min-h-screen">
-      <NavBar />
       <div className="font-neucha grid gap-6 text-white rounded-2xl py-4 px-8 mt-24">
         <div className="actions inline-flex gap-4 items-center text-sm">
           <Link
