@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ReactDOM from "react-dom";
+
 import { FormData } from "../pages/enterForum";
 
 const AuthModal: React.FC = () => {
@@ -6,16 +8,28 @@ const AuthModal: React.FC = () => {
     name: "",
     password: "",
   });
+
+  const [showModal, setShowModal] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
-  return (
-    <div className="fixed top-0 left-0 w-full h-full bg-black opacity-40">
-      <div className="modal bg-white rounded-2xl p-4">
+
+  return ReactDOM.createPortal(
+    <div className="fixed top-0 left-0 w-full h-full bg-black opacity-40 font-neucha">
+      <div className="relative modal bg-white rounded-2xl p-4">
+        <button
+          onClick={() => setShowModal(false)}
+          className="absolute -top-5 -right-5 bg-red-500 text-sm"
+        >
+          close
+        </button>
+
         <form action="#" onSubmit={handleSubmit}>
           <div className="form-control">
             <input
@@ -39,7 +53,8 @@ const AuthModal: React.FC = () => {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.getElementById("portal-root") as HTMLElement
   );
 };
 
